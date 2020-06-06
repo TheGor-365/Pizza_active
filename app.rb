@@ -3,6 +3,14 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sinatra/activerecord'
 
+set :database, 'sqlite3:db/pizza.db'
+
+# Models creating
+#--------------------------------
+
+class Product < ActiveRecord::Base
+end
+
 #login / logout
 #--------------------------------
 
@@ -43,7 +51,7 @@ end
 #-----------------------------
 
 get '/secure/place' do
-  
+
 
   erb :secret
 end
