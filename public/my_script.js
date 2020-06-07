@@ -1,25 +1,31 @@
 const something = () => {
-  let x = window.localStorage.getItem('item_2');
+  let x = window.localStorage.getItem('item_2')
   x++
-  window.localStorage.setItem('item_2', x);
+  window.localStorage.setItem('item_2', x)
   alert(x);
 }
 
 
 const add_to_cart = (id) => {
   let key = 'product_' + id;
-  let x = window.localStorage.getItem(key);
-  x = x * 1 + 1;
-  window.localStorage.setItem(key, x);
+  let x = window.localStorage.getItem(key)
+  x++
+  window.localStorage.setItem(key, x)
 
-  update_orders_input();
+  update_orders_input()
+  update_orders_button()
 }
 
 
 const update_orders_input = () => {
+  let orders = cart_get_orders()
+  $('#orders_input').val(orders)
+}
 
-  let orders = cart_get_orders();
-  $('#orders_input').val(orders);
+
+const update_orders_button = () => {
+  let text = 'Cart (' + cart_get_number_of_items() + ')'
+  $('#orders_button').val(text)
 }
 
 

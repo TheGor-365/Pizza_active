@@ -54,7 +54,7 @@
         <ul class="nav navbar-right">
           <form class="" action="/cart" method="POST">
             <input id="orders_input" type="hidden" name="orders">
-            <input class="btn btn-success btn-lg" type="submit" value="Cart (...)">
+            <input id="orders_button" class="btn btn-success btn-lg" type="submit" value="Cart (...)">
           </form>
         </ul>
         <ul class="nav navbar-right">
@@ -81,5 +81,13 @@
 				<%= yield %>
 			</div>
 		</div>
+    <script type="text/javascript">
+      $(function() {
+        update_orders_input();
+      });
+      $(function() {
+        update_orders_button();
+      });
+    </script>
   </body>
 </html>
