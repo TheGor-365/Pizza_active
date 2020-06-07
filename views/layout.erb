@@ -52,6 +52,12 @@
 					</ul>
 				</div>
         <ul class="nav navbar-right">
+          <form class="" action="/cart" method="POST">
+            <input id="orders_input" type="hidden" name="orders">
+            <input class="btn btn-success btn-lg" type="submit" value="Cart (...)">
+          </form>
+        </ul>
+        <ul class="nav navbar-right">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= username %>

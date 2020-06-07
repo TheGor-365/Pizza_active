@@ -73,3 +73,18 @@ get '/about' do
 
   erb :about
 end
+
+# cart page
+#-----------------------------
+
+get '/cart' do
+
+
+  erb :cart
+end
+
+post '/cart' do
+
+
+  erb :cart
+end
