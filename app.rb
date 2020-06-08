@@ -11,6 +11,9 @@ set :database, 'sqlite3:db/pizza.db'
 class Product < ActiveRecord::Base
 end
 
+class Order <ActiveRecord::Base
+end
+
 #login / logout
 #--------------------------------
 
