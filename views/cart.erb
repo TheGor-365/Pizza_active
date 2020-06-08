@@ -1,54 +1,59 @@
 <h2 class="mt-5 mb-3">Your cart</h2>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">№</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Qty</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% total_price = 0 %>
-    <% total_qty = 0 %>
-    <% @items.each_with_index do |item, index| %>
+<div id="cart">
+    <table class="table table-striped">
+    <thead>
       <tr>
-        <th scope="row"><%= index + 1 %></th>
-        <td><%= item[0].title %></td>
-        <td><%= item[0].price %></td>
-        <td><%= item[1] %></td>
+        <th scope="col">№</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Qty</th>
       </tr>
-      <% total_price += item[0].price * item[1].to_i %>
-      <% total_qty += item[1].to_i %>
-    <% end %>
-    <tr>
-      <th scope="row">TOTAL</th>
-      <td></td>
-      <td><b><%= total_price %></b></td>
-      <td><b><%= total_qty %></b></td>
-    </tr>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% total_price = 0 %>
+      <% total_qty = 0 %>
+      <% @items.each_with_index do |item, index| %>
+        <tr>
+          <th scope="row"><%= index + 1 %></th>
+          <td><%= item[0].title %></td>
+          <td><%= item[0].price %></td>
+          <td><%= item[1] %></td>
+        </tr>
+        <% total_price += item[0].price * item[1].to_i %>
+        <% total_qty += item[1].to_i %>
+      <% end %>
+      <tr>
+        <th scope="row">TOTAL</th>
+        <td></td>
+        <td><b><%= total_price %></b></td>
+        <td><b><%= total_qty %></b></td>
+      </tr>
+    </tbody>
+  </table>
 
-<form class="mt-5" action="/place_order" method="post">
+  <form class="mt-5" action="/place_order" method="post">
 
-  <input name="orders[orders_input]" type="hidden" value="<%= @orders_input %>">
+    <input name="orders[orders_input]" type="hidden" value="<%= @orders_input %>">
 
-  <div class="form-group">
-    <label>Name</label>
-    <input name="orders[name]" type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Phone</label>
-    <input name="orders[phone]" type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label>Delivery adress</label>
-    <textarea name="orders[address]" class="form-control"></textarea>
-  </div>
+    <div class="form-group">
+      <label>Name</label>
+      <input name="orders[name]" type="text" class="form-control">
+    </div>
 
-  <button type="submit" class="btn btn-primary btn-lg">Place this order</button>
-</form>
+    <div class="form-group">
+      <label>Phone</label>
+      <input name="orders[phone]" type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Delivery adress</label>
+      <textarea name="orders[address]" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-lg">Place this order</button>
+    <button onclick="return cancel_order()" class="btn btn-danger btn-lg">Cancel</button>
+  </form>
+</div>
 
 <%= @items %>
