@@ -53,8 +53,8 @@
 				</div>
         <ul class="nav navbar-right">
           <form class="" action="/cart" method="POST">
-            <input id="orders_input" type="hidden" name="orders">
-            <input id="orders_button" class="btn btn-success btn-lg" type="submit" value="Cart (...)">
+            <input id="orders_input" type="hidden" name="orderstring">
+            <input id="orders_button" class="btn btn-success btn-lg" type="submit">
           </form>
         </ul>
         <ul class="nav navbar-right">
@@ -83,11 +83,9 @@
 		</div>
     <script type="text/javascript">
       $(function() {
-        update_orders_input();
-      });
-      $(function() {
-        update_orders_button();
-      });
+        update_orders_input()
+        update_orders_button()
+      })
     </script>
   </body>
 </html>

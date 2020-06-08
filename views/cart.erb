@@ -1,0 +1,34 @@
+<h2 class="mt-5 mb-3">Your cart</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Qty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% total_price = 0 %>
+    <% total_qty = 0 %>
+    <% @items.each do |item| %>
+      <tr>
+        <th scope="row"><%= $. %></th>
+        <td><%= item[0].title %></td>
+        <td><%= item[0].price %></td>
+        <td><%= item[1] %></td>
+      </tr>
+      <% total_price += item[0].price * item[1].to_i %>
+      <% total_qty += item[1].to_i %>
+    <% end %>
+    <tr>
+      <th scope="row">TOTAL</th>
+      <td></td>
+      <td><b><%= total_price %></b></td>
+      <td><b><%= total_qty %></b></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= @items %>
