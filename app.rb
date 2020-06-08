@@ -117,3 +117,12 @@ get '/cart' do
 
   erb :cart
 end
+
+# place_order page
+#------------------------------
+
+post '/place_order' do
+  @orders = Order.create params[:orders]
+
+  erb :order_placed
+end
